@@ -436,9 +436,46 @@ void section6_blend()
 }
 ```
 ---
-## 七、
+## 七、图像亮度与对比度
+
+- 理论：$g(x) = af(x)+b$ ， fx是输入图像，b是对输入图像的整体亮度平移，效果是亮度的增大或减少，亮度差也就是对比度不变，而a是对亮度的线性扩大或缩小，会产生亮度值的相对差的改变引起对比度变化。
+- api：像素操作，然后通过saturate_cast进行区间限定。
+
+```c++
+/*7.图像亮度与对比度*/
+void section7()
+{
+	Mat src, dst;
+	src = imread("D:/dehaze_image/haze2.jpg", IMREAD_COLOR);
+	if (src.empty()) {
+		printf("could't load image..\n");
+		return;
+	}
+	imshow("src1", src);
+
+	dst = Mat::zeros(src.size(), src.type());
+	float a = 1.5;
+	float b = 0;
+	for (int i = 0; i < src.rows; i++) {
+		// 这里用指针ptr操作，也可以直接用at函数操作
+		uchar * row_src_ptr = src.ptr<uchar>(i);
+		uchar * row_dst_ptr = dst.ptr<uchar>(i);
+		for (int j = 0; j < src.cols*src.channels(); j++)
+		{
+			row_dst_ptr[j] = saturate_cast<uchar>(row_src_ptr[j] * a + b);
+		}
+	}
+	imshow("processed", dst);
+
+	waitKey(0);
+}
+```
 
 
+
+---
+
+## 八、绘制图形和文字
 
 
 

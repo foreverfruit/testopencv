@@ -302,3 +302,38 @@ void section6_blend()
 	}
 	waitKey(0);
 }
+
+/*7.图像亮度与对比度*/
+void section7()
+{
+	Mat src, dst;
+	src = imread("D:/dehaze_image/haze2.jpg", IMREAD_COLOR);
+	if (src.empty()) {
+		printf("could't load image..\n");
+		return;
+	}
+	imshow("src1", src);
+
+	dst = Mat::zeros(src.size(), src.type());
+	float a = 1.5;
+	float b = 0;
+	for (int i = 0; i < src.rows; i++) {
+		// 这里用指针ptr操作，也可以直接用at函数操作
+		uchar * row_src_ptr = src.ptr<uchar>(i);
+		uchar * row_dst_ptr = dst.ptr<uchar>(i);
+		for (int j = 0; j < src.cols*src.channels(); j++)
+		{
+			row_dst_ptr[j] = saturate_cast<uchar>(row_src_ptr[j] * a + b);
+		}
+	}
+	imshow("processed", dst);
+
+	waitKey(0);
+}
+
+
+/*8.绘制图像和文字*/
+void section8()
+{
+
+}

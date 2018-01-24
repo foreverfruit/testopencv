@@ -28,4 +28,8 @@ void section5_pixel_1c();
 void section5_pixel_mc();
 /*6.图像融合*/
 void section6_blend();
+/*7.图像亮度与对比度*/
+void section7();
+/*8.绘制图形和文字*/
+void section8();
 #endif

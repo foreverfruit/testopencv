@@ -9,6 +9,8 @@ int main(int argc, char** argv) {
 	//section4_mat();
 	//section5_pixel_1c();
 	//section5_pixel_mc();
-	section6_blend();
+	//section6_blend();
+	//section7();
+	section8();
 	return 0;
 }
