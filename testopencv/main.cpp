@@ -11,6 +11,24 @@ int main(int argc, char** argv) {
 	//section5_pixel_mc();
 	//section6_blend();
 	//section7();
-	section8();
+	//section8();
+	//section9();
+	//section9_1();
+	//section10();
+	//section10_1();
+	//section10_2();
+	//section10_3();
+	//section11();
+	//section12();
+	//section13();
+	//section14();
+	//section15();
+	//section16();
+
+	//canny();
+	hough();
+	//hough_circle();
+	
+
 	return 0;
 }
